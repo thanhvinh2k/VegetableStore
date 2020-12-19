@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html class=" ">
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title>ADMIN</title>
+    <link href="/admin_js/assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="/admin_js/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/admin_js/assets/plugins/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="/admin_js/assets/fonts/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/admin_js/assets/css/animate.min.css" rel="stylesheet" type="/text/css" />
+    <link href="/admin_js/assets/plugins/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" type="text/css" />
+    <link href="/admin_js/assets/plugins/jvectormap/jquery-jvectormap-2.0.1.css" rel="stylesheet" type="text/css"
+        media="screen" />
+    <link href="/admin_js/assets/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/admin_js/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <!-- Icons -->
+    <link rel="stylesheet" href="/admin_js/assets/nucleo/css/nucleo.css" type="text/css">
+</head>
+
+<body>
+    <div class='page-topbar '>
+        <div class='logo-area'>
+        </div>
+        <div class='quick-area'>
+            <div class='pull-left'>
+                <ul class="info-menu left-links list-inline list-unstyled">
+                    <li class="sidebar-toggle-wrap">
+                        <a href="javascript:;" data-toggle="sidebar" class="sidebar_toggle">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class='pull-right' id="profile-right">
+                <ul class="info-menu right-links list-inline list-unstyled">
+                    <li class="profile">
+                        <a href="#" data-toggle="dropdown" class="toggle">
+                            <img src="/img/avatar.png" alt="user-image" class="img-circle img-inline avatar">
+                            <span class="name"> <i class="fa fa-angle-down"></i></span>
+                        </a>
+                        <ul class="dropdown-menu profile animated fadeIn">
+                            {{#if user}}
+                            <li class="last">
+                                <a href="/admin/logout">
+                                    <i class="fa fa-lock"></i>
+                                    Đăng xuất
+                                </a>
+                            </li>
+                            <li class="last">
+                                <a href="/admin/changePass">
+                                    <i class="fa fa-lock"></i>
+                                    Đổi mật khẩu
+                                </a>
+                            </li>
+                            {{/if}}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="page-container row-fluid container-fluid">
+        <div class="page-sidebar pagescroll">
+            <div class="page-sidebar-wrapper" id="main-menu-wrapper">
+                <div class="profile-info row">
+                    <div class="profile-image col-xs-4">
+                        <img alt="" src="/img/logo-FBD.png">
+                        </a>
+                    </div>
+                    <div class="profile-details col-xs-8">
+                        <h3>
+                            <a class="name">{{user.email}}</a>
+                            <span class="profile-status online"></span>
+                        </h3>
+                        <p class="profile-title">Fresh Food Management</p>
+                    </div>
+                </div>
+                <ul class='wraplist'>
+                    <li class='menusection'>Menu</li>
+                    <li class="open">
+                        <a href="/admin">
+                            <i class="ni ni-chart-bar-32" style="color: #fb6340;"></i>
+                            <span class="title" style="opacity: 0.8;">Thống kê</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="javascript:;">
+                            <i class="ni ni-ungroup" style="color: #233dd2;"></i>
+                            <span class="title" style="opacity: 0.8;">Thể loại</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a class="" href="/admin/cate/List" style="opacity: 0.8; padding-left: 30px;">
+                                    <i class="ni ni-bullet-list-67" style="color: #11cdef;"></i>
+                                    <span class="title" style="opacity: 0.8;">Danh sách</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="" href="/admin/cate/Add" style="opacity: 0.8; padding-left: 30px;">
+                                    <i class="ni ni-fat-add" style="color: #ea3005;"></i>
+                                    <span class="title" style="opacity: 0.8;">Thêm</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="javascript:;">
+                            <i class="ni ni-atom" style="color: #2dce89;"></i>
+                            <span class="title" style="opacity: 0.8;">Sản Phẩm</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a class="" href="/admin/product/List" style="opacity: 0.8; padding-left: 30px;">
+                                    <i class="ni ni-bullet-list-67" style="color: #11cdef;"></i>
+                                    <span class="title" style="opacity: 0.8;">Danh sách</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="" href="/admin/product/Add" style="opacity: 0.8; padding-left: 30px;">
+                                    <i class="ni ni-fat-add" style="color: #ea3005;"></i>
+                                    <span class="title" style="opacity: 0.8;">Thêm</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="" href="/admin/nutritional/List" style="opacity: 0.8; padding-left: 30px;">
+                                    <i class="ni ni-collection" style="color: #5603ad;"></i>
+                                    <span class="title" style="opacity: 0.8;">Dinh Dưỡng</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="javascript:;">
+                            <i class="ni ni-chart-pie-35" style="color: #f5365c;"></i>
+                            <span class="title" style="opacity: 0.8;">Món Ăn</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a class="" href="/admin/recipe/List" style="opacity: 0.8; padding-left: 30px;">
+                                    <i class="ni ni-bullet-list-67" style="color: #11cdef;"></i>
+                                    <span class="title" style="opacity: 0.8;">Danh sách</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="" href="/admin/recipe/Add" style="opacity: 0.8; padding-left: 30px;">
+                                    <i class="ni ni-fat-add" style="color: #ea3005;"></i>
+                                    <span class="title" style="opacity: 0.8;">Thêm</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="" href="/admin/ingredient/List" style="opacity: 0.8; padding-left: 30px;">
+                                    <i class="ni ni-single-copy-04" style="color: #8898aa;"></i>
+                                    <span class="title" style="opacity: 0.8;">Nguyên Liệu</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="javascript:;">
+                            <i class="ni ni-basket" style="color: #ffd600;"></i>
+                            <span class="title" style="opacity: 0.8;">Đơn Hàng</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a class="" href="/admin/order/list" style="opacity: 0.8; padding-left: 30px;">
+                                    <i class="ni ni-bullet-list-67" style="color: #11cdef;"></i>
+                                    <span class="title" style="opacity: 0.8;">Danh sách</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="javascript:;">
+                            <i class="ni ni-circle-08" style="color: #f3a4b5;"></i>
+                            <span class="title" style="opacity: 0.8;">Tài Khoản</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a class="" href="/admin/user/List" style="opacity: 0.8; padding-left: 30px;">
+                                    <i class="ni ni-bullet-list-67" style="color: #11cdef;"></i>
+                                    <span class="title" style="opacity: 0.8;">Danh sách</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <section id="main-content" class=" ">
+            <section class="wrapper main-wrapper row" style=''>
+                <div class='col-xs-12'>
+                    <div class="page-title">
+                        <div class="pull-left">
+                            <h1 class="title">Sửa Sản Phẩm</h1>
+                        </div>
+                        <div class="pull-right hidden-xs">
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-xs-12">
+                    <section class="box ">
+                        <header class="panel_header">
+                            <h2 class="title pull-left">Thông Tin</h2>
+                            <div class="actions panel_actions pull-right">
+                                <a class="box_toggle fa fa-chevron-down"></a>
+                                <a class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></a>
+                                <a class="box_close fa fa-times"></a>
+                            </div>
+                        </header>
+                        <div class="content-body">
+                            <div class="row">
+                                {{#if success_msg }}
+                                <div class="alert alert-info">
+                                    <p>{{success_msg}}</p>
+                                </div>
+                                {{/if}}
+                                {{#if hasErrors}}
+                                <div class="alert alert-info">
+                                    {{# each messages}}
+                                    <p>{{this}}</p>
+                                    {{/each}}
+                                </div>
+                                {{/if}}
+                                <form action="./edit" method="POST" enctype="multipart/form-data">
+                                    <input type="hidden" name="_id" value="{{product._id}}">
+                                    <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                                        <div class="form-group">
+                                            <label class="form-label" for="field-120334">Tên sản phẩm</label>
+                                            <span class="desc"></span>
+                                            <div class="controls">
+                                                <input type="text" id="name" value="{{product.name}}"
+                                                    class="form-control" name="name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                                        <div class="form-group">
+                                            <label class="form-label" for="field-120334">Hình</label>
+                                            <span class="desc"></span><br />
+                                            <img src="/upload/{{product.image}}" width="200px">
+                                            <div class="controls">
+                                                <input type="file" id="image" value="" required="required"
+                                                    class="form-control" name="image">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                                        <div class="form-group">
+                                            <label class="form-label" for="field-120334">Giá</label>
+                                            <span class="desc"></span>
+                                            <div class="controls">
+                                                <input type="number" id="price" value="{{product.price}}" min="0"
+                                                    class="form-control" name="price">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                                        <div class="form-group">
+                                            <label class="form-label" for="field-120334">Loại Mua</label>
+                                            <span class="desc"></span>
+                                            <div class="controls">
+                                                <input type="text" id="typeBuy" value="{{product.typeBuy}}" min="0"
+                                                    class="form-control" name="typeBuy">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                                        <div class="form-group">
+                                            <label class="form-label" for="field-120334">Thể Loại</label>
+                                            <span class="desc"></span>
+                                            <div class="controls">
+                                                <select class="form-control" name="categoryUp">
+                                                    <option value="" selected>{{product.cateId}}</option>
+                                                    {{#each cate}}
+                                                    <option value="{{this._id}}">{{name}}</option>
+                                                    {{/each}}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                                        <div class="form-group">
+                                            <label class="form-label" for="field-120334">Chi Tiết Sản Phẩm</label>
+                                            <span class="desc"></span>
+                                            <div class="controls">
+                                                <textarea name="description" id="description"
+                                                    class="form-control autogrow"
+                                                    cols="5">{{product.description}}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                                        <div class="form-group">
+                                            <label class="form-label" for="field-120334">Lưu trữ</label>
+                                            <span class="desc"></span>
+                                            <div class="controls">
+                                                <textarea name="storage" id="storage" class="form-control autogrow"
+                                                    cols="5" rows="2">{{product.storage}}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                                        <div class="form-group">
+                                            <label class="form-label" for="field-120334">Xuất xứ</label>
+                                            <span class="desc"></span>
+                                            <div class="controls">
+                                                <textarea name="origin" id="origin" class="form-control autogrow"
+                                                    cols="5" rows="1">{{product.origin}}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-9 col-md-8 padding-bottom-30">
+                                        <div class="text-left">
+                                            <button type="submit" class="btn btn-info">Lưu</button>
+                                            <a href="/admin/product/List" type="button" class=" btn" class="btn">Quay
+                                                Lại</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </section>
+    </div>
+    <script src="/admin_js/assets/js/jquery-1.11.2.min.js" type="text/javascript"></script>
+    <script src="/admin_js/assets/js/jquery.easing.min.js" type="text/javascript"></script>
+    <script src="/admin_js/assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/admin_js/assets/plugins/pace/pace.min.js" type="text/javascript"></script>
+    <script src="/admin_js/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js" type="text/javascript"></script>
+    <script src="/admin_js/assets/plugins/viewport/viewportchecker.js" type="text/javascript"></script>
+    <script>window.jQuery || document.write('<script src="admin_js/assets/js/jquery-1.11.2.min.js"><\/script>');</script>
+    <script src="/admin_js/assets/plugins/echarts/echarts-custom-for-dashboard.js" type="text/javascript"></script>
+    <script src="/admin_js/assets/js/scripts.js" type="text/javascript"></script>
+</body>
+
+</html>

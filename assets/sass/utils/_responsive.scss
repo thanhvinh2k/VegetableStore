@@ -1,0 +1,71 @@
+// define responsive mixin for reuse
+$mobile-width: 380px;
+$big-mobile-width: 576px;
+$tablet-width: 768px;
+$big-tablet-width: 992px;
+$laptop-width: 1200px;
+$pc-width: 1440px;
+
+@mixin responsive($media) {
+    @if $media == xl {
+        @media (min-width: ($laptop-width)) and (max-width: ($pc-width - 0.02px)) {
+            @content;
+        }
+    } @else if $media == lg {
+        @media (min-width: ($big-tablet-width)) and (max-width: ($laptop-width - 0.02px)) {
+            @content;
+        }
+    } @else if $media == md {
+        @media (min-width: ($tablet-width)) and (max-width: ($big-tablet-width - 0.02px)) {
+            @content;
+        }
+    } @else if $media == sm {
+        @media (min-width: ($big-mobile-width)) and (max-width: ($tablet-width - 0.02px)) {
+            @content;
+        }
+    } @else if $media == xs {
+        @media (min-width: ($mobile-width)) and (max-width: ($big-mobile-width - 0.02px)) {
+            @content;
+        }
+    } @else if $media == max-xl {
+        @media (max-width: ($laptop-width - 0.02px)) {
+            @content;
+        }
+    } @else if $media == min-xl {
+        @media (min-width: ($laptop-width)) {
+            @content;
+        }
+    } @else if $media == max-lg {
+        @media (max-width: ($big-tablet-width - 0.02px)) {
+            @content;
+        }
+    } @else if $media == min-lg {
+        @media (min-width: ($big-tablet-width)) {
+            @content;
+        }
+    } @else if $media == max-md {
+        @media (max-width: ($tablet-width - 0.02px)) {
+            @content;
+        }
+    } @else if $media == min-md {
+        @media (min-width: ($tablet-width)) {
+            @content;
+        }
+    } @else if $media == max-sm {
+        @media (max-width: ($big-mobile-width - 0.02px)) {
+            @content;
+        }
+    } @else if $media == min-sm {
+        @media (min-width: ($big-mobile-width)) {
+            @content;
+        }
+    } @else if $media == max-xs {
+        @media (max-width: ($mobile-width - 0.02px)) {
+            @content;
+        }
+    } @else if $media == min-xs {
+        @media (min-width: ($mobile-width)) {
+            @content;
+        }
+    }
+}

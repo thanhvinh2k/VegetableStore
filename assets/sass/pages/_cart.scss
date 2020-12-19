@@ -1,0 +1,25 @@
+.page{
+    &__cart{
+        &-table {
+            .data {
+                grid-template-columns: 7fr 4fr 4fr 4fr 5fr 3fr 4fr 1fr;
+            }
+            .img{
+                object-fit: cover;
+                width: 150px;
+                height: 150px;
+                border: 1px solid;
+                border-color: $color-light-shadow;
+                background-color: $color-white;
+                border-radius:3px;
+            }
+            .qty{
+                width: 70px;
+                padding:3px 6px ;
+            }
+        }
+        .bases__box{
+            margin-bottom: 30px;
+        }
+    }
+}

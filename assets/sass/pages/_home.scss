@@ -1,0 +1,65 @@
+.pages {
+    &__home {
+        margin-top: 24px;
+        .col {
+            margin-right: 30px !important;
+            &:last-child {
+                margin-right: 0 !important;
+            }
+        }
+        .bases__box {
+            &:first-child{
+                margin-top: 0px;
+            }
+            .heading {
+                padding: 20px 60px;
+            }
+            .body {
+                padding: 0px 60px 0px 60px;
+            }
+        }
+        &-footer {
+            .bases__button {
+                background-color: $color-blue;
+                padding: 16px 0px;
+                width: 240px;
+                margin-top: 54px;
+                color: $color-white;
+                margin-right: 24px;
+            }
+        }
+        &-form {
+            &:first-child {
+                padding-bottom: 20px;
+            }
+            &:last-child {
+                 padding-top: 44px;
+            }
+        }
+        &-option {
+            margin-bottom: 40px;
+            .img {
+                width: 100%;
+                height: 180px;
+                object-fit: cover;
+            }
+            .icon {
+                margin-left: 35px;
+            }
+            &:hover {
+                .img {
+                    filter: blur(1.5px);
+                }
+                .mask {
+                    visibility: visible;
+                    filter: unset;
+                }
+            }
+            .mask {
+                visibility: hidden;
+                left: 40%;
+                top: 45%;
+            }
+        }
+    }
+}

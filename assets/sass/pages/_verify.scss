@@ -1,0 +1,21 @@
+.pages {
+    &__verify {
+        .col {
+            &-6 {
+                border: 1px solid;
+                border-color: $color-gray;
+                border-radius: 10px;
+                -moz-box-shadow: 3px 3px 5px 6px #ccc;
+                -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+                box-shadow: 3px 3px 5px 6px #ccc;
+                h1 {
+                    margin-top: 10px;
+                    margin-left: 10px;
+                }
+            }
+        }
+        // .form-default {
+        //     width: 200px;
+        // }
+    }
+}

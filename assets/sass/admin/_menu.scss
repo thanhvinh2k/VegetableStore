@@ -1,0 +1,41 @@
+.admin{
+    &__menu{
+        background-color: $color-light-blue-gray;
+        float: left;
+        width: 300px;
+        height: 100%;
+        .circle{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: $color-gray;
+            margin: 10px 0px 0px 20px;
+        }
+        .text{
+            // margin-top: 10px; 
+            color: $color-white;
+
+        }
+        .profile-info{
+        background: transparent;
+        padding-top: 15px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 15px;
+        .profile-image{
+            padding-right: 5px;
+            display: inline-block;
+            img{
+                height: 65px;
+                width: 65px;
+                float: right;
+                top: 5px;
+                left: 5px;
+                position: relative;
+                background-color: #777777;
+            }
+        }
+        }
+    }
+}

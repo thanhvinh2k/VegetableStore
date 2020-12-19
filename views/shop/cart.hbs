@@ -1,0 +1,94 @@
+{{#if products}}
+<div class="pages__cart">
+    <div class="bases__box">
+        <div class="bases__table page__cart-table">
+            <div class="heading bases__font--30 bases__text-bold d-flex ">
+                <div class="mr-3">
+                    <i class="fas fa-cart-plus"></i>
+                    Giỏ Hàng
+                </div>
+                <div class="">
+                    <a class="bases__btn btn-delete-all bases__font--15" href="/delete"><i
+                            class="fas fa-trash-alt mr-2"></i>Xoá giỏ hàng</a>
+                </div>
+                {{!-- <div class=" ml-3">
+                    <a class="bases__btn btn-delete-all bases__font--15" href="/update"><i class="fas fa-trash-alt mr-2"></i>Cập nhât giỏ
+                        hàng</a>
+                </div> --}}
+            </div>
+            <div class="body">
+                <div class="data bases__font--16 align-items-center">
+                    <div>Hình ảnh</div>
+                    <div>Tiêu đề</div>
+                    <div>Gía</div>
+                    <div>Số lượng</div>
+                    <div>Thành tiền</div>
+                    <div>Xóa</div>
+                    <div>Cập nhật</div>
+                    <div>
+                        <input type='checkbox' onchange="checkAll(this)">
+                    </div>
+                </div>
+                {{#each products }}
+                <form action="/update/{{this.item._id}}" method="post">
+                    <div class="data bases__font--16 align-items-center ">
+                        <div><img class="img" src="/upload/{{this.item.image}}" alt=""></div>
+                        <div>{{this.item.name}}</div>
+                        <div>{{this.item.price}}đ</div>
+                        <div><input id="{{this.item._id}}" name="qty" type="number" min="1" class="qty"
+                                value="{{this.qty}}"></div>
+                        <div>{{this.price}}đ</div>
+                        <div><button class="bases__btn btn-round dropdown-toggle" data-toggle="dropdown"
+                                type="button">Xóa<span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="/delCart/{{this.item._id}}">Xóa </a></li>
+                                <li><a href="/remove/{{this.item._id}}">Xóa hàng loạt </a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <button type="submit" class="bases__btn btn-round">
+                                Cập nhật
+                            </button>
+                        </div>
+                        <div>
+                            <input type='checkbox' name='cart[]' value='{{this.item._id}}' />
+                        </div>
+                    </div>
+                </form>
+                {{/each}}
+                <div>
+                    <div class="row mt-3">
+                        <div class="col-6 ">
+                            <a class="bases__btn btn-round-cart " href="/"><i class="fa fa-angle-left"></i>Tiếp tục mua
+                                sắm</a>
+                        </div>
+                        <div class="col-4 bases__text-bold">Tổng tiền <span class="badge">{{this.totalPrice}}đ</span>
+                        </div>
+                        <div class="col-2 ">
+                            <a href="/checkout" class="bases__btn btn-round-buy">
+                                <span class="bases__font--16">Thanh toán<i class="fa fa-angle-right"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{else}}
+<h1 style="text-align: center; ">Không có sản phẩm nào trong giỏ hàng</h1>
+{{/if}}
+<script language="javascript">
+    function checkAll(e) {
+        var checkboxes = document.getElementsByName('cart[]');
+        if (e.checked) {
+            for (var i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = true;
+            }
+        } else {
+            for (var i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = false;
+            }
+        }
+    };
+</script>

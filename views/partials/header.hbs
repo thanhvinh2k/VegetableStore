@@ -1,0 +1,45 @@
+<div class="partials__header">
+    <nav class="navbar navbar-expand-sm navbar-light ">
+        <a class="navbar-brand" href="/"> <img class="partials__header-logo" src="/img/logoo.png" alt=""> </a>
+        <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+            <ul class="nav navbar-nav menu_nav ml-auto">
+                <li class="nav-item "><a class="nav-link" href="/">Trang chủ</a></li>
+                <li class="nav-item "><a class="nav-link" href="/product">Sản phẩm</a></li>
+
+                <li class="nav-item submenu dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                        aria-haspopup="true" aria-expanded="false">Tài khoản</a>
+                    <ul class="dropdown-menu">
+                        {{#if user }}
+                        <li class="nav-item"><a class="nav-link" href="/user/logout">Đăng xuất</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/user/changePass">Đổi mật khẩu</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="nav-item"><a class="nav-link" href="../user/userProfile">Thông tin tài khoản</a></li>
+                        {{else}}
+                        <li class="nav-item"><a class="nav-link" href="/user/registration">Đăng ký</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/user/login">Đăng nhập</a></li>
+                        {{/if}}
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="/cart" class="nav-link">Giỏ Hàng
+                        {{#if session.cart.totalQty}}
+                        <span class="badge"> {{session.cart.totalQty}} </span>
+                        {{/if}}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/contact-us" class="nav-link">Liên hệ</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="search_input">
+            <div class="container">
+                <form action="/search" method="GET" class="d-flex justify-content-between">
+                    <input type="text" class="tt-search-input" placeholder="Tìm Kiếm Sản Phẩm..." name="searchText">
+                </form>
+            </div>
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,174 @@
+<form action="/user/registration" method="POST" id="createaccount">
+    <div class="pages__registration">
+        <div class="bases__box">
+            <div class="body">
+                <div class="row image" style="background-image: url('/img/regis.jpg');">
+                    <div class="col-6">
+                    </div>
+                    <div class="col-6">
+                        <div class="card">
+                            <h5 class="card-header info-color white-text text-center py-4">
+                                <strong>Đăng ký tài khoản</strong>
+                            </h5>
+                            <div class="card-body px-lg-5 pt-0">
+                                <div class="row mt-2">
+                                    {{#if hasErrors}}
+                                    <div class="container">
+                                        <div class="alert alert-danger">
+                                            {{# each messages}}
+                                            <p>{{this}}</p>
+                                            {{/each}}
+                                        </div>
+                                    </div>
+                                    {{/if}}
+                                </div>
+                                <div class="md-form mt-2">
+                                    <label for="username" class="mb-2">Tên tài khoản:</label>
+                                    <input class="form-control mb-2" type="text" id="username" maxlength="255"
+                                        name="username" required="required" />
+                                </div>
+                                <div class="md-form mt-0">
+                                    <label for="email" class="mb-2">E-mail</label>
+                                    <input type="email" id="email" name="email" class="form-control mb-2">
+                                </div>
+                                <div class="md-form">
+                                    <label for="" class="mb-2">Mật khẩu</label>
+                                    <input type="password" id="password" class="form-control mb-2" name="password">
+                                </div>
+                                <div class="md-form">
+                                    <label for="" class="mb-2">
+                                        Xác nhận mật khẩu:
+                                    </label>
+                                    <input class="form-control mb-2" type="password" id="confirmPassword"
+                                        maxlength="255" name="confirmPassword" required="required" />
+                                </div>
+                                <div class="md-form">
+                                    <label for="phone" class="mb-2">Số điện thoại</label>
+                                    <input type="number" id="phone" class="form-control mb-2" name="phone"  pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==10) return false;">
+                                </div>
+                                <div class="md-form">
+                                    <label for="roles" class="mb-2">
+                                        Vai trò:
+                                    </label>
+                                    <input class="form-control mb-2" type="text" id="roles" name="roles"
+                                        readonly="readonly" value="0" />
+                                </div>
+                                <div class="form-check d-flex align-items-center">
+                                    <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">
+                                    <label class="form-check-label ml-3 mt-1" for="materialRegisterFormNewsletter">Theo
+                                        dõi bản tin của chúng tôi</label>
+                                </div>
+                                <div>
+                                    <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                                    <button
+                                        class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0"
+                                        type="submit">Đăng ký</button>
+                                </div>
+                                    <p>hoặc đăng ký với:</p>
+                                    <a type="button" class="btn-floating btn-fb btn-sm ">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a type="button" class="btn-floating btn-tw btn-sm">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a type="button" class="btn-floating btn-li btn-sm">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a type="button" class="btn-floating btn-git btn-sm">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                <hr>
+                                <!-- Terms of service -->
+                                <h6>Nếu đã có tài khoản vui lòng đăng nhập tại
+                                    <a href="/user/login" class="text-danger">đây!</a>
+                                </h6>
+                                <!-- Form -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+{{!-- <form action="/user/registration" method="POST" id="createaccount">
+    <div class="bases__box">
+        <div class="heading">
+            <div class="d-flex align-items-center">
+                <img class="bases__icon-sm mr-3" src="/img/logoo.png" />
+                <div class="bases__font--20 bases__text-bold">
+                    Đăng ký
+                </div>
+            </div>
+        </div>
+        <div class="body">
+            {{#if hasErrors}}
+            <div class="container">
+                <div class="alert alert-danger">
+                    {{# each messages}}
+                    <p>{{this}}</p>
+                    {{/each}}
+                </div>
+            </div>
+            {{/if}}
+            <div class="row align-items-center">
+                <div class="bases__col-left pl-0">
+                    Tên tài khoản:
+                </div>
+                <div class="bases__col-right pr-0 d-flex">
+                    <input class="w-100" type="text" id="username" maxlength="255" name="username" required />
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="bases__col-left pl-0">
+                    Email:
+                </div>
+                <div class="bases__col-right pr-0 d-flex">
+                    <input class="w-100" type="email" id="email" maxlength="255" name="email" required />
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="bases__col-left pl-0">
+                    Mật khẩu:
+                </div>
+                <div class="bases__col-right pr-0 d-flex">
+                    <input class="w-100" type="password" id="password" maxlength="255" name="password" required />
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="bases__col-left pl-0">
+                    Xác nhận mật khẩu:
+                </div>
+                <div class="bases__col-right pr-0 d-flex">
+                    <input class="w-100" type="password" id="confirmPassword" maxlength="255" name="confirmPassword"
+                        required />
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="bases__col-left pl-0">
+                    Số điện thoại:
+                </div>
+                <div class="bases__col-right pr-0 d-flex">
+                    <input class="w-100" type="number" id="phone" maxlength="255" name="phone" required />
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="bases__col-left pl-0">
+                    Vai trò:
+                </div>
+                <div class="bases__col-right pr-0 d-flex">
+                    <input class="w-100" type="text" id="roles" name="roles" readonly value="0" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+    <div class="d-flex justify-content-center">
+        <button class="bases__btn btn-submit d-flex align-items-center" type="submit">
+            <i class="bases__font--12 fas fa-play mr-1"></i>
+            <span class="bases__font--16">Đăng ký</span>
+        </button>
+    </div>
+</form> --}}

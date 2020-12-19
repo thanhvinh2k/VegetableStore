@@ -1,0 +1,26 @@
+.pages{
+    &__detailpro{
+        .col{
+            &-6{
+                .img{
+                    width :400px;
+                    height: 350px;
+                    border: 2px solid;
+                    border-color: $color-gray;
+                    object-fit: cover;
+                    border-radius: 3px;
+                }
+            }
+            &-4{
+                padding: 5px;
+            }
+            &-8{
+                padding: 5px;
+            }            
+        }
+        #evaluate{
+            display: block;
+        }
+        
+    }
+}

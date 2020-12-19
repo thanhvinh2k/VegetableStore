@@ -1,0 +1,31 @@
+<div class="body">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-md-offset-2">
+            <h1>Thông tin tài khoản</h1>
+            <h2>Đơn hàng của bạn</h2>
+            {{#each orders }}
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-group">
+                        {{#each this.items }}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span class="badge badge-primary badge-pill">{{this.price}}đ</span>
+                            {{this.item.name}} | {{this.qty}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                    <div class="panel-footer">{{this.cart.totalPrice}}đ</div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <a class="mr-4" href="">
+            <button class="bases__btn btn-submit d-flex align-items-center" type="button">
+                <i class="bases__font--12 bases__rotate-reverse fas fa-play mr-1"></i>
+                <span class="bases__font--16"></span>
+            </button>
+        </a>
+    </div>
+</div>

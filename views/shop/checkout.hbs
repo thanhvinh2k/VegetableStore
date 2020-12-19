@@ -1,0 +1,151 @@
+<div class="page__checkout">
+    <div id="body">
+        <div class="row d-flex align-items-center mb-4">
+            <h2 class="bases__text-bold mr-3">Thông tin giao hàng</h2>
+            <div>
+                <form action="/checkout" id="checkout-form" method="POST">
+                    <button type="button" class="bases__btn btn-payment" data-toggle="modal" data-target="#exampleModalCenter">
+                        Thanh toán bằng thẻ
+                    </button>
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Thông tin thẻ</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="charge-error" class="alert alert-danger {{#if noError}} hidden {{/if}} ">
+                                        {{errMsg}}
+                                    </div>
+                                    <div class="col-50">
+                                        <h3>Thanh toán</h3>
+                                        <label for="fname">Thẻ được chấp nhận</label>
+                                        <div class="icon-container">
+                                            <i class="fa fa-cc-stripe" style="color:#003366"></i>
+                                            <i class="fa fa-cc-amex" style="color:blue;"></i>
+                                            <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                                            <i class="fa fa-cc-discover" style="color:orange;"></i>
+                                            <i class="fa fa-cc-visa" style="color:navy;"></i>
+                                        </div>
+                                        <label for="card-name">Tên chủ thẻ</label>
+                                        <input type="text" id="card-name" name="" placeholder="" required>
+                                        <label for="card-number">Số thẻ tín dụng</label>
+                                        <input type="text" id="card-number" name="" required placeholder="1111-2222-3333-4444">
+                                        <label for="card-cvc">CVC</label>
+                                        <input type="text" id="card-cvc" name="" required placeholder="352">
+                                        <div class="row">
+                                            <div class="col-50">
+                                                <label for="card-expiry-month">Tháng hết hạn</label>
+                                                <select name="card-expiry-month" id="card-expiry-month">
+                                                    <option value="1" selected >1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                    <option value="10">10</option>
+                                                    <option value="11">11</option>
+                                                    <option value="12">12</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-50">
+                                                <label for="card-expiry-year">Năm hết hạn</label>
+                                                <select name="card-expiry-year" id="card-expiry-year" >
+                                                    <option value="2021" selected >2021</option>
+                                                    <option value="2022">2022</option>
+                                                    <option value="2023">2023</option>
+                                                    <option value="2024">2024</option>
+                                                    <option value="2025">2025</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="row">
+                                        
+                                        <button type="submit" id="payment" class="btn btn-primary mr-2">Thanh
+                                            toán</button>
+                                        <button type="button" class="btn-cancel"
+                                            data-dismiss="modal">Hủy</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="charge-error" class="alert alert-danger {{#if noError}} hidden {{/if}} ">
+            {{errMsg}}
+        </div>
+        <div class="row">
+            <div class="col-75">
+                <div class="container">
+                    <form action="/payment" id="payment" method="POST">
+                        <h4>Địa chỉ giao hàng</h4>
+                        <div class="row justify-content-center">
+                            <div class="col-50">
+                                <label for="name"><i class="fa fa-user"></i> Họ và tên</label>
+                                <input type="text" id="name" name="name" placeholder="" required>
+                                <label for="email"><i class="fa fa-envelope"></i> E-mail</label>
+                                <input type="text" id="email" name="email" placeholder="" required>
+                                <label><i class="fas fa-birthday-cake"></i> Ngày sinh</label>
+                                <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy" required> <input
+                                        class="form-control" readonly="" type="text"> <span class="input-group-addon"><i
+                                            class="glyphicon glyphicon-calendar"></i></span>
+                                </div>
+
+                                <label for="address"><i class="fa fa-address-card-o"></i> Địa chỉ</label>
+                                <input type="text" id="address" name="address" placeholder="" required>
+                                <label for="city"><i class="fa fa-institution"></i> Thành phố</label>
+                                <input type="text" id="city" name="city" placeholder="" required>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            {{#if isAuthenticated }}
+                            <div class="mt-3 ">
+                                <a href="/verify-email" class="bases__btn btn-round-buy">
+                                    <span class="bases__font--16">Xác thực Email<i class="fa fa-angle-right"></i></span>
+                                </a>
+                            </div>
+                            {{else}}
+                            <button type="submit" class="btn ">Thanh Toán</button>
+                            {{/if}}
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-25">
+                <div class="container">
+                    <h4>Giỏ hàng <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <span
+                                class="badge"> {{totalQty}} </span></span>
+                    </h4>
+                    {{#each products}}
+                    <p><a href="/detail/{{this.item._id}}"> {{this.item.name}} </a> <span
+                            class="price bases__text-bold">{{this.price}} đ</span></p>
+                    {{/each}}
+                    <hr>
+                    <p>Tổng tất cả <span class="price" style="color:black"><b>{{totalPrice}} đ</b></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript" src="javascripts/checkout.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#datepicker").datepicker({
+            autoclose: true,
+            todayHighlight: true
+        }).datepicker('update', new Date());
+    });
+</script>

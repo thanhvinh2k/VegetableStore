@@ -1,0 +1,17 @@
+.partials{
+    &__banner{
+        position: relative;
+        .img{
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .icon{
+            &:hover{
+                opacity: .5;
+                background-color: $color-white-opacity;
+            }
+        }
+      
+    }
+}

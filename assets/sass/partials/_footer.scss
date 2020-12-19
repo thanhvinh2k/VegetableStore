@@ -1,0 +1,89 @@
+.partials {
+    &__footer {
+        @include responsive(xl) {
+            margin-top: 50px;
+            .btn.btn-warning {
+                margin-left: 10px;
+                color: $color-white;
+            }
+            .fb-ic {
+                color: $color-blue;
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+            .tw-ic {
+                color: $color-blue;
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+            .gplus-ic {
+                color: $color-red;
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+            .li-ic {
+                color: $color-blue;
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+            .ins-ic {
+                color: $color-red-dark;
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+            .fa.fa-cc-visa{
+                color:navy;
+                font-size:  24px;
+                padding: 5px;
+                &:hover{
+                  opacity: .5;
+                }
+            }
+            .fa.fa-cc-amex{
+                color:$color-blue-dark;
+                font-size:  24px;
+                padding: 5px;
+                &:hover{
+                  opacity: .5;
+                }
+            }
+            .fa.fa-cc-mastercard{
+                color:$color-red;
+                font-size:  24px;
+                padding: 5px;
+                &:hover{
+                  opacity: .5;
+                }
+            }
+            .fa.fa-cc-discover{
+                color:$color-orange;
+                font-size:  24px;
+                padding: 5px;
+                &:hover{
+                  opacity: .5;
+                }
+            }
+            .fab.fa-cc-paypal{
+                color:$color-blue;
+                font-size:  24px;
+                padding: 5px;
+                &:hover{
+                  opacity: .5;
+                }
+            }
+            .fab.fa-cc-stripe{
+                color:$color-purple;
+                font-size:  24px;
+                padding: 5px;
+                &:hover{
+                  opacity: .5;
+                }
+            }
+        }
+    }
+}

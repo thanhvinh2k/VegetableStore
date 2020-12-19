@@ -1,0 +1,9 @@
+.layouts {
+    &__main {
+        background-color: $color-gray;
+        &-body {
+            min-height: 75vh;
+            padding: 40px 15px 170px 15px;
+        }
+    }
+}

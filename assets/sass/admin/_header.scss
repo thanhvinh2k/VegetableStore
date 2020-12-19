@@ -1,0 +1,12 @@
+.admin {
+  &__header {
+    background-color: $color-lime;
+    min-height: 60px;
+    width: 100%;
+    .logo{
+      width:30px ;
+      height: 30px;
+      margin: 10px 0px 0px 10px;
+    }
+  }
+}

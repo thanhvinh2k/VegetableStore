@@ -1,0 +1,70 @@
+.pages {
+    &__registration {
+        .info-color {
+            background-color: #33b5e5 !important;
+        }
+        .white-text {
+            color: #fff !important;
+        }
+        .col {
+            &-6 {
+                padding: 10px;
+            }
+        }
+        .image {
+            border-radius: 10px;
+            object-fit: cover;
+            background-image: url("photographer.jpg");
+        }
+        .btn-floating {
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            padding: 0;
+            margin: 10px;
+            overflow: hidden;
+            vertical-align: middle;
+            cursor: pointer;
+            border-radius: 50%;
+            -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+            box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            i {
+                display: inline-block;
+                width: inherit;
+                color: #fff;
+                text-align: center;
+                font-size: 1.25rem;
+                line-height: 47px;
+            }
+        }
+        .fab {
+            font-family: 'Font Awesome 5 Brands';
+        }
+        .btn {
+            &-sm {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.875rem;
+                line-height: 1.5;
+                border-radius: 0.2rem;
+            }
+            &-li {
+                color: #fff;
+                background-color: #0082ca !important;
+            }
+            &-git {
+                color: #fff;
+                background-color: #333 !important;
+            }
+            &-fb {
+                background-color: #3b5998 !important;
+                color: $color-white;
+            }
+            &-tw {
+                color: #fff;
+                background-color: #55acee !important;
+            }
+        }
+    }
+}

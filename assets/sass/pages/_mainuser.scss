@@ -1,0 +1,92 @@
+.pages {
+    &__mainuser {
+        .products {
+            .main-product {
+                width: 250px;
+                border-radius: 16px;
+                -webkit-box-shadow: 0 0 10px rgb(202, 197, 197);
+                box-shadow: 0 0 10px rgb(189, 184, 184);
+                background-color: $color-white;
+                margin: 15px 13px;
+                display: block;
+                .content-product {
+                    padding: 10px;
+                    .title {
+                        padding: 10px 0;
+                        overflow: hidden;
+                        font-weight: 500;
+                        font-size: 16px;
+                        max-height: 50px;
+                        text-align: center;
+                        line-height: 19px;
+                        margin: 0 0 5px;
+                    }
+                    .star {
+                        text-align: center;
+                        line-height: 19px;
+                        margin-bottom: 15px;
+                    }
+                    .bottom {
+                        justify-content: center;
+                        &-price {
+                            color: $color-yellow-dark;
+                            font-weight: 700;
+                            vertical-align: middle;
+                            margin-right: 10px;
+                            .money {
+                                vertical-align: middle;
+                            }
+                        }
+                        &-cart {
+                            background: $color-green;
+                            border-radius: 5px;
+                            border-color: $color-green;
+                            color: $color-white;
+                            font-weight: 300;
+                            &:hover {
+                                opacity:.5 ;
+                            }
+                        }
+                    }
+                }
+                .img {
+                    object-fit: cover;
+                    width: 220px;
+                    height: 150px;
+                    margin: 16px 16px 0px 16px;
+                    border-radius: 16px;
+                    background-color: $color-white;
+                    -webkit-filter: blur(1px);
+                    filter: blur(1px);
+                    -webkit-transition: 0.3s ease-in-out;
+                    transition: 0.3s ease-in-out;
+                    &:hover {
+                        -webkit-filter: blur(0);
+                        filter: blur(0);
+                    }
+                }
+            }
+        }
+        .select {
+            &-order {
+                width: 200px;
+                &:first-child {
+                    margin-right: 20px;
+                }
+            }
+            &-number {
+                width: 100px;
+            }
+        }
+        .section-title {
+            padding: 20px;
+            margin-left: 50px;
+            h1 {
+                font-size: 30px;
+                &:first-child {
+                    margin-left: 30px;
+                }
+            }
+        }
+    }
+}

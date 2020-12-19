@@ -1,0 +1,45 @@
+.partials {
+    &__header {
+        background-color: $color-lime;
+        .bases__button {
+            color: $color-white;
+            padding: 11px 10px;
+            &:first-child {
+                background-color: $color-brown !important;
+                margin-right: 10px;
+            }
+            &:last-child {
+                background-color: $color-dark-gray !important;
+            }
+        }
+        &-logo {
+            height: 100px;
+            width: 200px;
+            margin-left: 50px;
+            object-fit: cover;
+        }
+        .form {
+            margin-left: 100px;
+        }
+        &-menu {
+            background-color: $color-brown;
+            &_item {
+                color: $color-white;
+                width: 77px;
+                padding: 20px 0 10px;
+                margin: 0 7px;
+                text-align: center;
+                &:hover {
+                    opacity: 0.5;
+                    color: $color-white;
+                }
+            }
+        }
+        .nav-link {
+            color: $color-white;
+            &:hover {
+                color: $color-blue;
+            }
+        }
+    }
+}
